@@ -1,0 +1,28 @@
+{*
+ * @version    $Id: template.phtml 2 2009-07-13 20:58:52Z david@grudl.com $
+ * @param Paginator $paginator
+ * @param array     $steps
+ *}
+
+{if $paginator->pageCount > 1}
+<ul class="uk-pagination">
+	{if $paginator->isFirst()}
+	<li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
+		{else}
+	<li><a href="{link changePage 'page'=>$paginator->page - 1}"><i class="uk-icon-angle-double-left"></i></a></li>
+		{/if}
+		{foreach $steps as $step}
+		{if $step == $paginator->page}
+	<li class="uk-active"><span>{$step}</span></li>
+	{else}
+	<li><a href="{link changePage 'page' => $step}">{$step}</a></li>
+	{/if}
+	{if $iterator->nextValue > $step + 1}<li><span>…</span></li>{/if}
+	{/foreach}
+	{if $paginator->isLast()}
+	<li class="uk-disabled"><span><i class="uk-icon-angle-double-right"></i></span></li>
+		{else}
+	<li><a href="{link changePage 'page'=>$paginator->page + 1}"><i class="uk-icon-angle-double-right"></i></a></li>
+		{/if}
+</ul>
+{/if}

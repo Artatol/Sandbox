@@ -1,0 +1,26 @@
+{
+	"name": "artatol/sandbox",
+	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for artatol applications.",
+	"homepage": "http://nette.org",
+	"type": "project",
+	"license": ["Unlicense"],
+	"authors": [
+		{
+			"name": "David Grudl",
+			"homepage": "http://davidgrudl.com"
+		},
+		{
+			"name": "Nette Community",
+			"homepage": "http://nette.org/contributors"
+		}
+	],
+	"require": {
+		"php": ">= 5.4.0",
+		"nette/nette": "~2.2.0",
+		"janmarek/webloader": "2.2.*",
+		"natxet/CssMin": "3.0.2",
+		"linkorb/jsmin-php": "1.0.0",		
+		"uikit/uikit":"2.8.*"
+	},
+	"minimum-stability": "stable"
+}

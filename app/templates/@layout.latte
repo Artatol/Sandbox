@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cz" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Project: ">
+        <meta name="copyright" content="&copy; 2014 - {date('Y')} Engage Hill">
+        <meta name="robots" content="index, follow">
+        <title>{block #title|striptags|strip}ARTATOL/SANDBOX{/block}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        {control css}
+        <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+    </head>
+
+    <body>
+		<div n:foreach="$flashes as $flash" class="uk-hidden flash {$flash->type}">{$flash->message}</div>		
+		<div id="page">
+			{include #content}
+		</div>
+    </body>
+	{control js}
+</html>
