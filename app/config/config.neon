@@ -27,11 +27,40 @@ nette:
 		smtp: true
 		host: mail.artatol.cz
 		username : app@artatol.cz
+		password: pass
 		secure : ssl	
 
 extensions:
 	webloader: WebLoader\Nette\Extension
+	redis: Kdyby\Redis\DI\RedisExtension
+	console: Kdyby\Console\DI\ConsoleExtension
+	events: Kdyby\Events\DI\EventsExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	doctrine: Kdyby\Doctrine\DI\OrmExtension
+	monolog: Kdyby\Monolog\DI\MonologExtension
 
+doctrine:
+	host: '%databasehost.pgsql%'
+	driver: pdo_pgsql
+	user: user
+	password: pass
+	dbname: db
+	metadataCache: array
+	metadata:
+		Namespace: annotations(%appDir%/model)
+
+redis:
+	journal: on
+	session: on
+	storage: off
+	debugger: off
+	host: '%databasehost.redis%'
+	port: 6379
+	timeout: 10
+	database: 5
+
+monolog:
+	name: monolog
 
 services:
 	- App\Model\UserManager

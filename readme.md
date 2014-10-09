@@ -1,7 +1,7 @@
-Nette Sandbox
-=============
+Artatol Nette Sandbox
+=====================
 
-Sandbox is a pre-packaged and pre-configured Nette Framework application
+Sandbox is a pre-packaged and pre-configured Nette Framework application + basic utilities for artatol projects
 that you can use as the skeleton for your new applications.
 
 [Nette](http://nette.org) is a popular tool for PHP web development.
@@ -15,7 +15,7 @@ Installing
 The best way to install Sandbox is using Composer. If you don't have Composer yet, download
 it following [the instructions](http://doc.nette.org/composer). Then use command:
 
-		composer create-project nette/sandbox my-app
+		composer create-project artatol/sandbox my-app
 		cd my-app
 
 Make directories `temp` and `log` writable. Navigate your browser

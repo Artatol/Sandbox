@@ -20,7 +20,10 @@
 		"janmarek/webloader": "2.2.*",
 		"natxet/CssMin": "3.0.2",
 		"linkorb/jsmin-php": "1.0.0",		
-		"uikit/uikit":"2.8.*"
+		"uikit/uikit":"2.8.*",
+		"kdyby/redis": "~3.2",
+		"kdyby/doctrine": "~2.1",
+		"kdyby/monolog": "~1.0"
 	},
 	"minimum-stability": "stable"
 }
