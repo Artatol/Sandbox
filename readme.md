@@ -1,7 +1,7 @@
 Artatol Nette Sandbox
 =====================
 
-Sandbox is a pre-packaged and pre-configured Nette Framework application + basic utilities for artatol projects
+Hello, Sandbox is a pre-packaged and pre-configured Nette Framework application + basic utilities for artatol projects
 that you can use as the skeleton for your new applications.
 
 [Nette](http://nette.org) is a popular tool for PHP web development.
