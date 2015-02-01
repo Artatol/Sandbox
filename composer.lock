@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ad401a7297b78f1fefade3bb4c2796c",
+    "hash": "df703967d6b88648189e780330783546",
     "packages": [
         {
             "name": "artatol/ui",
-            "version": "dev-develop",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vdejl/artatol-ui.git",
-                "reference": "3414f74ee0bf23761a9e612c90a2298a3a0ea0f9"
+                "reference": "b1054362395b4167bc3a212eb713022d5b0df762"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vdejl/artatol-ui/zipball/3414f74ee0bf23761a9e612c90a2298a3a0ea0f9",
-                "reference": "3414f74ee0bf23761a9e612c90a2298a3a0ea0f9",
+                "url": "https://api.github.com/repos/vdejl/artatol-ui/zipball/b1054362395b4167bc3a212eb713022d5b0df762",
+                "reference": "b1054362395b4167bc3a212eb713022d5b0df762",
                 "shasum": ""
             },
             "suggest": {
@@ -41,11 +41,11 @@
             ],
             "description": "Artatol UI is a customized less extension, fine to be used with the popular uikit framework (getuikit.com).",
             "homepage": "https://artatol.com",
-            "time": "2015-02-01 12:52:00"
+            "time": "2015-02-01 12:59:06"
         },
         {
             "name": "components/jquery",
-            "version": "1.11.x-dev",
+            "version": "1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
@@ -3226,10 +3226,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "components/jquery": 20,
-        "artatol/ui": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
