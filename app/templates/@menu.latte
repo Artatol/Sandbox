@@ -1,0 +1,53 @@
+<!-- TOP SCROLL -->
+<a id="top-link" href='#home' class="top-link aa-toplink aa-hidden uk-hidden-small" data-uk-smooth-scroll>
+    <i class="uk-icon-chevron-up"></i>
+</a>
+
+<!-- TOP MENU -->
+<div class="uk-width-1-1 aa-main-menu uk-text-center">
+    <a n:href="Homepage:"><img src="{$basePath}/images/aa-logo-s.png" class="aa-logo-menu"></a>
+    <div class='uk-hidden-small uk-container-center uk-text-center uk-width-1-2' style='margin-top:30px;font-weight:300;'>
+        <a n:href='Homepage:' class="aa-decoration-none {ifCurrent Homepage:}aa-weight-bold aa-color-1{/ifCurrent}">{_text.menu.about}</a>
+        <span style="color:#ffd4db;margin-left:5px;margin-right:5px;">&#8226;</span>
+        <a n:href='Homepage:' class="aa-decoration-none {ifCurrent One:}aa-weight-bold aa-color-1{/ifCurrent}">{_text.menu.one}</a>
+        <span style="color:#ffd4db;margin-left:5px;margin-right:5px;">&#8226;</span>
+        <a n:href='Homepage:' class="aa-decoration-none {ifCurrent Two:}aa-weight-bold aa-color-1{/ifCurrent}">{_text.menu.two}</a>
+        <span style="color:#ffd4db;margin-left:5px;margin-right:5px;">&#8226;</span>
+        <a n:href='Homepage:' class="aa-decoration-none {ifCurrent Three:}aa-weight-bold aa-color-1{/ifCurrent}">{_text.menu.three}</a>
+        <span style="color:#ffd4db;margin-left:5px;margin-right:5px;">&#8226;</span>
+        <a href='#contact' class="aa-decoration-none" data-uk-smooth-scroll="{ offset: 80 }">{_text.menu.contact}</a>
+    </div>
+    <div class='uk-visible-small uk-align-right uk-margin-right' style='margin-top:30px;font-weight:300;'>
+        <a href="javascript:void(0)" id="mobile-menu-button"><i class='uk-icon uk-icon-bars' style='font-size:24px;'></i></a>
+    </div>
+</div>
+
+
+<!-- Mobile menu 2-->
+<div id='mobile-menu' class="uk-width-1-1 uk-text-center aa-mobile-menu uk-hidden">
+    <ul class="uk-nav uk-nav-side uk-margin-bottom aa-text-p">
+        <li {ifCurrent Homepage:}class='uk-hidden'{/ifCurrent}><a n:href="Homepage:">
+                {_text.menu.home}
+            </a>
+        </li>
+        <li class="uk-nav-divider {ifCurrent Homepage:}uk-hidden{/ifCurrent}"></li>
+        <li {ifCurrent Homepage:}class='uk-active'{/ifCurrent}><a n:href="Homepage:">
+                {_text.menu.about}
+            </a>
+        </li>
+        <li {ifCurrent One:}class='uk-active'{/ifCurrent}><a n:href="Homepage:">
+                {_text.menu.one}
+            </a>
+        </li>
+        <li {ifCurrent Two:}class='uk-active'{/ifCurrent}><a n:href="Homepage:">
+                {_text.menu.two}
+            </a>
+        </li>
+        <li {ifCurrent Three:}class='uk-active'{/ifCurrent}><a n:href="Homepage:">
+                {_text.menu.three}
+            </a>
+        </li>
+        <li><a href='#contact' class="aa-decoration" data-uk-smooth-scroll="{ offset: 80 }">{_text.menu.contact}</a>
+        </li>
+    </ul>
+</div>

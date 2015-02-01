@@ -2,9 +2,9 @@ log/*
 temp/*
 vendor/*
 !vendor/others
-nbproject
 .DS_Store
 !.gitignore
 !.htaccess
 !web.config
 app/config/config.local.neon
+www/webtemp/*

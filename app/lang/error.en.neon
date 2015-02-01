@@ -1,0 +1,13 @@
+page: "Oops!"
+head:
+    403: "Access denied"
+    404: "Oops!"
+    500: "Oops!"
+body:
+    404-1: "Is this the page you are looking for?"
+    404-2: "Please, make sure you have a correct address, or visit our homepage."
+    404-3: "visit homepage"
+    403-1: "Please try contact the website administrator if you believe you should be able to view this page."
+    500-1: "Something went wrong."
+    500-2: "We are terribly sorry, but we were unable to complete your request."
+    end: "Should the problem persist, contact the website administrator."

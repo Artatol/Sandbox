@@ -1,0 +1,14 @@
+page: "Ouha!"
+head:
+    403: "Přístup zamítnut"
+    404: "Ouha!"
+    500: "Ouha!"
+body:
+    404-1: "Opravdu hledáte tuto stránku?"
+    404-2: "Ujistěte se, prosím, že máte správnou adresu, nebo navšivte naší domovskou stránku."
+    404-3: "přejít na domovskou stránku"
+    403-1: "Kontaktujte administrátora pokud se domníváte, že tato stránka by Vám měla být přístupná."
+    500-1: "Něco se nepovedlo."
+    500-2: "Moc nás to mrzí, ale nedokázali jsme dokončit Váš požadavek."
+    end: "Pokud by problém přetrvával, kontaktujte administrátora webu."
+

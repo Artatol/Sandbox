@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html lang="cz" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Project: ">
-        <meta name="copyright" content="&copy; 2014 - {date('Y')} Engage Hill">
-        <meta name="robots" content="index, follow">
-        <title>{block #title|striptags|strip}ARTATOL/SANDBOX{/block}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        {control css}
-        <link rel="shortcut icon" href="{$basePath}/favicon.ico">
-    </head>
+<html class="uk-height-1-1">
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-language" content="en">
+		<meta name="robots" content="{$robots}" n:ifset="$robots" content="noindex,nofollow">
+        <meta name="rating" content="general">
+        <meta name="author" content="Artatol, https://www.artatol.com">
+        <meta name="copyright" content="Artatol.com">
+        <meta name="description" content={_text.layout.description}>
+        <title>{block title|striptags}Artatol &raquo; {_text.layout.striptag}{/block}</title>
 
-    <body>
-		<div n:foreach="$flashes as $flash" class="uk-hidden flash {$flash->type}">{$flash->message}</div>		
-		<div id="page">
-			{include #content}
-		</div>
-    </body>
-	{control js}
+
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+		{control css}
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		{block head}{/block}
+	</head>
+
+	<body class="uk-height-1-1">
+		<script> document.documentElement.className += ' js'</script>
+
+                <div class="uk-width-1-1 uk-text-center aa-flash-message">
+                    <div n:foreach="$flashes as $flash" class="uk-width-small-1-1 uk-width-medium-2-3 uk-width-large-1-2 uk-container-center aa-flash-message-content flash {$flash->type}">
+                            {$flash->message}
+                    </div>
+                </div>
+        {ifCurrent Error:*}
+                <div class="uk-width-1-1 uk-height-1-1">
+                {include content}
+                </div>
+        {else}
+        <div class="uk-width-1-1 uk-height-1-1">
+                {include '@ganalytics.latte'}
+                {include '@menu.latte'}
+			    {include content}
+                {include '@contact.latte'}
+        </div>
+        {/ifCurrent}
+
+		{control js}
+	</body>
 </html>

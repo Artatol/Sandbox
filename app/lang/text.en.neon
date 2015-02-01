@@ -1,0 +1,23 @@
+layout:
+    striptag: "Sandbox"
+    title: "Artatol sandbox - webkit"
+    description: "Artatol - helping people do what they love."
+
+presenter:
+    form:
+        name: "Please, fill in your name."
+        email: "Please, fill in your e-mail address."
+        nomail: "You have not entered a valid e-mail address."
+        message: "Please, type in your message."
+        flash: "Your message was successfully sent. Thank you."
+    mediabox:
+        loading: "Loading..."
+        loadmore: "Load more"
+
+menu:
+    home: "Home"
+    about: "About"
+    one: "One"
+    two: "Two"
+    three: "Three"
+    contact: "Contact"

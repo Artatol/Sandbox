@@ -25,71 +25,79 @@ nette:
 
 	mailer:
 		smtp: true
-		host: mail.artatol.cz
-		username : app@artatol.cz
-		password: pass
-		secure : ssl	
+		host: imap.artatol.cz
+		username : 'username'
+		password: 'password'
+		port: ###
+		secure : tls
 
 extensions:
 	webloader: WebLoader\Nette\Extension
-	redis: Kdyby\Redis\DI\RedisExtension
-	console: Kdyby\Console\DI\ConsoleExtension
-	events: Kdyby\Events\DI\EventsExtension
-	annotations: Kdyby\Annotations\DI\AnnotationsExtension
-	doctrine: Kdyby\Doctrine\DI\OrmExtension
-	monolog: Kdyby\Monolog\DI\MonologExtension
+#	redis: Kdyby\Redis\DI\RedisExtension
+#	console: Kdyby\Console\DI\ConsoleExtension
+#	events: Kdyby\Events\DI\EventsExtension
+#	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+#	doctrine: Kdyby\Doctrine\DI\OrmExtension
+#	monolog: Kdyby\Monolog\DI\MonologExtension
+	translation: Kdyby\Translation\DI\TranslationExtension
 
-doctrine:
-	host: '%databasehost.pgsql%'
-	driver: pdo_pgsql
-	user: user
-	password: pass
-	dbname: db
-	metadataCache: array
-	metadata:
-		Namespace: annotations(%appDir%/model)
+#doctrine:
+#	host: '%databasehost.pgsql%'
+#	driver: pdo_pgsql
+#	user: user
+#	password: pass
+#	dbname: db
+#	metadataCache: array
+#	metadata:
+#		Namespace: annotations(%appDir%/model)
 
-redis:
-	journal: on
-	session: on
-	storage: off
-	debugger: off
-	host: '%databasehost.redis%'
-	port: 6379
-	timeout: 10
-	database: 5
+#redis:
+#	journal: on
+#	session: on
+#	storage: off
+#	debugger: off
+#	host: '%databasehost.redis%'
+#	port: 6379
+#	timeout: 10
+#	database: 5
 
-monolog:
-	name: monolog
+#monolog:
+#	name: monolog
 
 services:
 	- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
 	wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
+	lessFilter: WebLoader\Filter\LessFilter
 	wlCssMinFilter: Artatol\CssMinFilter
 	wlJsMinFilter: Artatol\JsMinFilter
+
+
+translation:
+    default: en
+    whitelist: [cs, en]
+    debugger: true
 
 webloader:
 	css:
 		default:
-			files:				
-				- '%appDir%/../vendor/uikit/uikit/dist/css/uikit.css'
-				- '%appDir%/../vendor/uikit/uikit/dist/css/addons/uikit.addons.css'
+			files:
+				- '%wwwDir%/less/compiler/artatol.less'
 
-			filters:
-				- @wlCssFilter
 			fileFilters:
+				- @wlCssFilter
+				- @lessFilter
 				- @wlCssMinFilter
 	js:
 		default:
 			files:
-				- '%wwwDir%/js/jquery-1.9.1.js'
-				- '%appDir%/../vendor/uikit/uikit/dist/js/uikit.min.js'
-				- '%appDir%/../vendor/uikit/uikit/dist/js/addons/notify.min.js'
-				- '%wwwDir%/js/nette.ajax.js'
+				- '%appDir%/../vendor/components/jquery/jquery.min.js'
 				- '%wwwDir%/js/netteForms.js'
-				- '%wwwDir%/js/main.js'
+				- '%appDir%/../vendor/uikit/uikit/docs/js/uikit.min.js'
+				- {files: ["*.js"], from: %appDir%/../vendor/uikit/uikit/src/js/core}
+				- '%appDir%/../vendor/uikit/uikit/src/js/components/notify.js'
+				- '%wwwDir%/js/artatol.js'
 
 			fileFilters:
 				- @wlJsMinFilter
