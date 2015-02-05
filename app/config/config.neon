@@ -68,11 +68,10 @@ services:
 	- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
-	wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
-	lessFilter: WebLoader\Filter\LessFilter
-	wlCssMinFilter: Artatol\CssMinFilter
+#	wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%/webtemp)
+#	lessFilter: WebLoader\Filter\LessFilter
+#	wlCssMinFilter: Artatol\CssMinFilter
 	wlJsMinFilter: Artatol\JsMinFilter
-
 
 translation:
     default: en
@@ -83,12 +82,12 @@ webloader:
 	css:
 		default:
 			files:
-				- '%wwwDir%/less/compiler/artatol.less'
+				- '%wwwDir%/css/artatol-all.min.css'
 
 			fileFilters:
-				- @wlCssFilter
-				- @lessFilter
-				- @wlCssMinFilter
+#				- @wlCssFilter
+#				- @lessFilter
+#				- @wlCssMinFilter
 	js:
 		default:
 			files:

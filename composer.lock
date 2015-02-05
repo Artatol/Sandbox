@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "artatol/ui",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vdejl/artatol-ui.git",
-                "reference": "b1054362395b4167bc3a212eb713022d5b0df762"
+                "reference": "5ed908f9f214173a098109a90a9ae5d7dac70ea8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vdejl/artatol-ui/zipball/b1054362395b4167bc3a212eb713022d5b0df762",
-                "reference": "b1054362395b4167bc3a212eb713022d5b0df762",
+                "url": "https://api.github.com/repos/vdejl/artatol-ui/zipball/5ed908f9f214173a098109a90a9ae5d7dac70ea8",
+                "reference": "5ed908f9f214173a098109a90a9ae5d7dac70ea8",
                 "shasum": ""
             },
             "suggest": {
@@ -41,7 +41,7 @@
             ],
             "description": "Artatol UI is a customized less extension, fine to be used with the popular uikit framework (getuikit.com).",
             "homepage": "https://artatol.com",
-            "time": "2015-02-01 12:59:06"
+            "time": "2015-02-02 19:51:44"
         },
         {
             "name": "components/jquery",

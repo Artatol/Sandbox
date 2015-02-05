@@ -8,3 +8,7 @@ vendor/*
 !web.config
 app/config/config.local.neon
 www/webtemp/*
+.idea/
+components/
+node_modules/
+npm-debug.log

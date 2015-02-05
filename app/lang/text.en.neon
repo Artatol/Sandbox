@@ -1,6 +1,5 @@
 layout:
-    striptag: "Sandbox"
-    title: "Artatol sandbox - webkit"
+    title: "sandbox - webkit"
     description: "Artatol - helping people do what they love."
 
 presenter:

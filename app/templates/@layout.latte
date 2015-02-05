@@ -8,7 +8,8 @@
         <meta name="author" content="Artatol, https://www.artatol.com">
         <meta name="copyright" content="Artatol.com">
         <meta name="description" content={_text.layout.description}>
-        <title>{block title|striptags}Artatol &raquo; {_text.layout.striptag}{/block}</title>
+        <title>Artatol &raquo; {block title|striptags}{_text.layout.title}{/block}</title>
+        <meta name="description" content="{block description}{_text.layout.description}{/block}">
 
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

@@ -42,7 +42,7 @@ mobilemenubutton.on('click', function(){
         mobilemenu.hide().removeClass('uk-hidden').slideDown(400).addClass('active');
     }else{
         mobilemenu.slideUp(200).removeClass('active'); 
-    };
+    }
 });
 mobilemenu.find('li').on('click',function(){
    mobilemenu.addClass('uk-hidden').removeClass('active'); 
