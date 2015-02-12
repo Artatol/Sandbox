@@ -2,13 +2,11 @@
 <html class="uk-height-1-1">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="Content-language" content="en">
 		<meta name="robots" content="{$robots}" n:ifset="$robots" content="noindex,nofollow">
         <meta name="rating" content="general">
         <meta name="author" content="Artatol, https://www.artatol.com">
-        <meta name="copyright" content="Artatol.com">
-        <meta name="description" content={_text.layout.description}>
-        <title>Artatol &raquo; {block title|striptags}{_text.layout.title}{/block}</title>
+        <meta name="description" content="{_text.layout.description}">
+        <title>"Artatol &raquo; {block title|striptags}{_text.layout.title}{/block}"</title>
         <meta name="description" content="{block description}{_text.layout.description}{/block}">
 
 
@@ -37,7 +35,10 @@
                 {include '@ganalytics.latte'}
                 {include '@menu.latte'}
 			    {include content}
+                {ifCurrent Policy:*}
+                {else}
                 {include '@contact.latte'}
+                {/ifCurrent}
         </div>
         {/ifCurrent}
 

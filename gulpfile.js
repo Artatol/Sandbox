@@ -15,6 +15,10 @@ var pkg         = require('./package.json'),
     browsersync = require('browser-sync'),
     reload      = browsersync.reload;
 
+// so far only limited functionality. No sequence support.
+// start with clear:temp, continue with less, minifycss and eventually watch:reload
+
+
 gulp.task('clean', function(){
     gulp.src('./www/css', {read: false}).pipe(rimraf());
 });
