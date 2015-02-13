@@ -23,6 +23,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	/** @var Nette\Mail\SmtpMailer @inject */
 	public $mailer;
 
+
 	/** @return CssLoader */
 	protected function createComponentCss() {
 		return $this->webLoader->createCssLoader('default');
