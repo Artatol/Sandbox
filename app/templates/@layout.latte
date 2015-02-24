@@ -19,6 +19,7 @@
 	</head>
 
 	<body class="uk-height-1-1">
+    {include '@ganalytics.latte'}
 		<script> document.documentElement.className += ' js'</script>
 
                 <div class="uk-width-1-1 uk-text-center aa-flash-message">
@@ -32,7 +33,6 @@
                 </div>
         {else}
         <div class="uk-width-1-1 uk-height-1-1">
-                {include '@ganalytics.latte'}
                 {include '@menu.latte'}
 			    {include content}
                 {ifCurrent Policy:*}
