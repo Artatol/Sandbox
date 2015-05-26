@@ -4,6 +4,7 @@ website: www.artatol.com
 */
 /* 
     Created on : Nov 23, 2014
+    Last update: May 26, 2015
     Author     : Vlastimil Dejl, Artatol.com
 */
 
@@ -13,29 +14,36 @@ ARTATOL UI set-up
 
 // !!! always check for correct paths !!!
 
-// import uikit
-// project path from /less is ../../../vendor/uikit/uikit/themes/default/
-// vendor path is ../../../../../uikit/uikit/themes/default/
-@import '../../../vendor/uikit/uikit/themes/default/uikit-customizer.less';
+// import uikit here...
+// project path from /less is ../../vendor/uikit/uikit/themes/default/
+// vendor path is ../../../../uikit/uikit/themes/default/
+@import '../../vendor/uikit/uikit/themes/default/uikit-customizer.less';
 
 // import uikit variables (uikit 2.16)
-@import '../../../vendor/artatol/ui/src/less/components/uikit-variables.less';
+@import '../../vendor/artatol/ui/src/less/components/uikit-variables.less';
 // import artatol-ui components
 // project path from /less is ../../../vendor/artatol/ui/src/less/components
 // vendor path is ../components
-@import '../../../vendor/artatol/ui/src/less/components/general.less';
-@import '../../../vendor/artatol/ui/src/less/components/flashmessage.less';
-@import '../../../vendor/artatol/ui/src/less/components/background.less';
-@import '../../../vendor/artatol/ui/src/less/components/text.less';
-@import '../../../vendor/artatol/ui/src/less/components/error.less';
-@import '../../../vendor/artatol/ui/src/less/components/menu.less';
-@import '../../../vendor/artatol/ui/src/less/components/top-link.less';
+@import '../../vendor/artatol/ui/src/less/components/general.less';
+@import '../../vendor/artatol/ui/src/less/components/flashmessage.less';
+@import '../../vendor/artatol/ui/src/less/components/background.less';
+@import '../../vendor/artatol/ui/src/less/components/text.less';
+@import '../../vendor/artatol/ui/src/less/components/error.less';
+@import '../../vendor/artatol/ui/src/less/components/menu.less';
+@import '../../vendor/artatol/ui/src/less/components/top-link.less';
 // import custom project component
-@import '../components/custom.less';
+@import 'components/custom.less';
+
 
 // path to fonts from compiled css (must be public)
 @icon-font-path: "../fonts/uikit";
 @aa-font-path: "../fonts/artatol";
+
+/* =============================================================
+TO DO list
+============================================================= */
+// copy fonts to public folder
+
 /* =============================================================
 ARTATOL Less Customizer
 ============================================================= */
@@ -81,7 +89,7 @@ ARTATOL Less Customizer
 @font-body: 'Open Sans', sans-serif;
 @font-head: 'Ubuntu', sans-serif;
 @text-size: 105%;
-@paragraph-text-size: 1.2em;
+@paragraph-text-size: 1.2rem;
 @text-line-height: 1.2em;
 @head-line-height: 1.5em;
 @text-font-weight: 300;
@@ -89,11 +97,13 @@ ARTATOL Less Customizer
 @text-primary-color: @color3;
 @text-link-color: @color1;
 @head-primary-color: @color3;
+@color-red: #F73455;
 
 @h1: 3em; // please fill in the same value (WITH em), rest is automatic
 @h2: @h1 * 0.75em;
 @h3: @h1 * 0.54em;
 @h4: @h1 * 0.44em;
+@h5: @h1 * 0.4em;
 
 @text-light: 300;
 @text-normal: 400;
@@ -160,5 +170,10 @@ Positioning
   position:absolute;
   bottom: @bottom;
   left: @left;
+}
+.aa-absolute-bottom-r (@bottom:0px, @right:0px) {
+  position:absolute;
+  bottom: @bottom;
+  right: @right;
 }
 

@@ -4,6 +4,7 @@ website: www.artatol.com
 */
 /* 
     Created on : Nov 23, 2014
+    Last update: May 26, 2015
     Author     : Vlastimil Dejl, Artatol.com
 */
 /* =============================================================
@@ -259,7 +260,7 @@ h4,
 }
 h5,
 .uk-h5 {
-  font-size: 14px;
+  font-size: 1.2em;
   line-height: 1.5em;
 }
 h6,
@@ -2970,7 +2971,7 @@ select.uk-form-width-mini {
  * Requires sub-objects: `uk-form-label`, `uk-form-controls`
  ========================================================================== */
 /* Tablet portrait and smaller */
-@media (max-width: 960px -1) {
+@media (max-width: 959px) {
   /* Behave like `uk-form-stacked` */
   .uk-form-horizontal .uk-form-label {
     display: block;
@@ -6069,7 +6070,7 @@ a.uk-thumbnail:focus {
   }
 }
 /* Phone landscape and smaller */
-@media (max-width: 768px -1) {
+@media (max-width: 767px) {
   /*
      * Stack columns and take full width
      */
@@ -6205,7 +6206,7 @@ a.uk-thumbnail:focus {
   transition: opacity 0.3s linear, transform 0.3s ease-out;
 }
 /* Phone landscape and smaller */
-@media (max-width: 768px -1) {
+@media (max-width: 767px) {
   /*
      * Fit in small screen
      */
@@ -6260,7 +6261,7 @@ a.uk-thumbnail:focus {
   float: none;
 }
 /* Phone landscape and smaller */
-@media (max-width: 768px -1) {
+@media (max-width: 767px) {
   .uk-modal-dialog-lightbox > .uk-close:first-child {
     top: -7px;
     right: -7px;
@@ -6618,7 +6619,7 @@ a.uk-thumbnail:focus {
   vertical-align: bottom !important;
 }
 /* Only tablets portrait and smaller */
-@media (max-width: 960px -1) {
+@media (max-width: 959px) {
   .uk-text-center-medium {
     text-align: center !important;
   }
@@ -6627,7 +6628,7 @@ a.uk-thumbnail:focus {
   }
 }
 /* Phone landscape and smaller */
-@media (max-width: 768px -1) {
+@media (max-width: 767px) {
   .uk-text-center-small {
     text-align: center !important;
   }
@@ -7068,7 +7069,7 @@ a.uk-thumbnail:focus {
   }
 }
 /* Tablets portrait */
-@media (min-width: 768px) and (max-width: 960px -1) {
+@media (min-width: 768px) and (max-width: 959px) {
   .uk-visible-small {
     display: none !important;
   }
@@ -7080,7 +7081,7 @@ a.uk-thumbnail:focus {
   }
 }
 /* Phone landscape and smaller*/
-@media (max-width: 768px -1) {
+@media (max-width: 767px) {
   .uk-visible-medium {
     display: none !important;
   }
@@ -8472,7 +8473,7 @@ a.uk-datepicker-table-muted {
 /* Responsiveness
 ========================================================================== */
 /* Phones portrait and smaller */
-@media (max-width: 480px -1) {
+@media (max-width: 479px) {
   /*
      * Fit in small screen
      */
@@ -8910,6 +8911,10 @@ General
 .aa-hidden {
   visibility: hidden;
 }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /*
 Positioning
 */
@@ -8930,6 +8935,11 @@ Positioning
   position: absolute;
   bottom: 0px;
   left: 0px;
+}
+.aa-position-absolute-bottom-r {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 .aa-position-fixed-top-l {
   position: fixed;
@@ -8987,17 +8997,55 @@ HR line special
   margin: 30px auto 50px;
   width: 50px;
 }
+.aa-button-red-k {
+  background: #f73455;
+}
+.aa-button-red-k:hover {
+  background: #f9657e;
+}
+.aa-button-red-k:focus,
+.aa-button-red-k:active {
+  background: #f61b40;
+}
+.aa-color-button {
+  color: white;
+  font-weight: 300;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  height: 1.8em !important;
+}
+.aa-color-button:hover {
+  color: white;
+  cursor: pointer;
+  background: rgba(150, 150, 150, 0.5) !important;
+}
+.aa-color-button-red {
+  background: #f73455;
+}
 /*
 Elem heights
 */
+.aa-height-5 {
+  height: 5px;
+}
 .aa-height-10 {
   height: 10px;
 }
+.aa-height-15 {
+  height: 15px;
+}
 .aa-height-20 {
-  height: 10px;
+  height: 20px;
+}
+.aa-height-25 {
+  height: 25px;
 }
 .aa-height-30 {
   height: 30px;
+}
+.aa-height-35 {
+  height: 35px;
 }
 .aa-height-40 {
   height: 40px;
@@ -9117,12 +9165,22 @@ body {
 .aa-back-white {
   background: white;
 }
+.aa-back-red {
+  background: #f73455;
+}
+.aa-back-menu {
+  background: rgba(255, 255, 255, 0.9);
+}
 .aa-round-image {
   width: 200px;
   height: 200px;
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
+}
+.aa-background-cover-center {
+  background-size: cover;
+  background-position: center;
 }
 /*
 Text format
@@ -9133,12 +9191,16 @@ Text format
 .aa-font-family-head {
   font-family: 'Ubuntu', sans-serif;
 }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .aa-text-base {
   font-size: 1em;
 }
 p,
 .aa-text-p {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   line-height: 1.4em;
 }
 .aa-text-small {
@@ -9146,6 +9208,22 @@ p,
 }
 .aa-text-large {
   font-size: 1.2em;
+}
+[class*='aa-text-h'] {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+.aa-text-h1-like {
+  font-size: 3em;
+}
+.aa-text-h2-like {
+  font-size: 2.25em;
+}
+.aa-text-h3-like {
+  font-size: 1.62em;
+}
+.aa-text-h4-like {
+  font-size: 1.32em;
 }
 .aa-weight-light {
   font-weight: 300;
@@ -9186,6 +9264,9 @@ p,
 .aa-text-white {
   color: white;
 }
+.aa-text-red {
+  color: #f73455;
+}
 /*
 Text decoration
 */
@@ -9211,6 +9292,46 @@ Text decoration
 .aa-decoration-color4:hover {
   color: #737373;
 }
+.aa-decoration-red {
+  color: #f73455;
+}
+.aa-decoration-red:hover,
+.aa-decoration-red:focus {
+  color: #f73455;
+}
+.aa-decoration-text {
+  color: #444444;
+}
+.aa-decoration-text:hover,
+.aa-decoration-text:focus {
+  color: #db002a;
+}
+.aa-decoration-head {
+  color: #444444;
+}
+.aa-decoration-head:hover,
+.aa-decoration-head:focus,
+.aa-decoration-head:active {
+  color: #db002a;
+}
+.aa-padding-10 {
+  padding: 10px;
+}
+.aa-padding-lr-10 {
+  padding: 0px 10px;
+}
+.aa-padding-lr-30 {
+  padding: 0px 30px;
+}
+.aa-padding-top-3 {
+  padding-top: 3px;
+}
+.aa-padding-top-5 {
+  padding-top: 5px;
+}
+.aa-padding-top-7 {
+  padding-top: 7px;
+}
 @media screen and (max-width: 480px) {
   h1 {
     font-size: 2.1em;
@@ -9224,6 +9345,9 @@ Text decoration
     font-size: 1.458em;
   }
   h4 {
+    font-size: 1.254em;
+  }
+  h5 {
     font-size: 1.254em;
   }
 }
@@ -9322,7 +9446,7 @@ Menu
 .aa-menu-height {
   height: 80px;
 }
-@media (max-width: 480px -1) {
+@media (max-width: 479px) {
   .aa-main-menu {
     height: 80px;
     background: rgba(255, 255, 255, 0.9);
@@ -9380,6 +9504,9 @@ Top-link
   right: 20px;
   z-index: 900;
 }
+/* =============================================================
+TO DO list
+============================================================= */
 /* =============================================================
 ARTATOL Less Customizer
 ============================================================= */

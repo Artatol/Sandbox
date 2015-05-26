@@ -9,11 +9,12 @@
         <title>"Artatol &raquo; {block title|striptags}{_text.layout.title}{/block}"</title>
         <meta name="description" content="{block description}{_text.layout.description}{/block}">
 
-
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
-		{control css}
+        <!-- inject:css -->
+        <link href="/css/artatol-all.min-678bea5b.css" rel="stylesheet" type="text/css">
+        <!-- endinject -->
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		{block head}{/block}
 	</head>
@@ -41,7 +42,8 @@
                 {/ifCurrent}
         </div>
         {/ifCurrent}
-
-		{control js}
+        <!-- inject:js -->
+        <script src="/js/artatol-all.min-e0d8aa66.js"></script>
+        <!-- endinject -->
 	</body>
 </html>

@@ -1,7 +1,7 @@
 {
 	"name": "artatol/sandbox",
 	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for artatol applications.",
-  	"version": "1.0.1",
+  	"version": "1.0.2",
   	"homepage": "https://artatol.com",
 	"type": "project",
 	"license": ["MIT"],
@@ -14,18 +14,13 @@
 	"require": {
 		"php": ">= 5.4.0",
 		"nette/nette": "~2.2.0",
-		"natxet/CssMin": "3.0.2",
-		"linkorb/jsmin-php": "~1.0",
-		"janmarek/webloader": "~2.3",
-		"leafo/lessphp": "0.5.*",
 		"kdyby/translation": "~2.0",
 		"kdyby/redis": "~3.2",
 		"kdyby/doctrine": "~2.1",
 		"kdyby/monolog": "~1.0",
 		"components/jquery": "~1.11",
 		"uikit/uikit": "~2.16",
-		"artatol/ui": "~1.0",
-	  	"tecnick.com/tcpdf": "~6.2"
+		"artatol/ui": "~1.0"
 	},
 	"minimum-stability": "stable",
   "extra": {

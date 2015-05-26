@@ -5,106 +5,111 @@ var pkg         = require('./package.json'),
     rename      = require('gulp-rename'),
     less        = require('gulp-less'),
     minifycss   = require('gulp-minify-css'),
-    uglify      = require('gulp-uglify'),
     gutil       = require('gulp-util'),
     rev         = require('gulp-rev'),
     del         = require('del'),
     rimraf      = require('gulp-rimraf'),
     watch       = require('gulp-watch'),
+    uglify      = require('gulp-uglify'),
     runSequence = require('run-sequence'),
+    clean       = require('gulp-clean'),
     browsersync = require('browser-sync'),
+    inject      = require('gulp-inject'),
     reload      = browsersync.reload;
 
 // so far only limited functionality. No sequence support.
 // start with clear:temp, continue with less, minifycss and eventually watch:reload
 
-
-gulp.task('clean', function(){
-    gulp.src('./www/css', {read: false}).pipe(rimraf());
-});
-
-// clear temp files
-gulp.task('clear:temp', ['clear:cache', 'clear:css']);
-// clear css
-gulp.task('clear:css', function(){
-    del([
-        './www/css/artatol-all.min.css',
-        './www/css/artatol.css',
-        './www/webtemp/*.css'
-    ]);
-});
-// clear webtemp
-gulp.task('clear:webtemp', function(){
-    del([
-        './www/webtemp/*.css'
-    ]);
-});
-// clear cache
-gulp.task('clear:cache', function(){
-    del([
-        './temp/cache/*'
-    ]);
-});
-
-// browser-sync task for starting the server.
-gulp.task('browsersync', function() {
-    browsersync({
-        proxy: "www.sandbox.localhost"
-    });
-});
-
-// Reload all Browsers
-gulp.task('bs-reload', function (done) {
-    browsersync.reload();
-    done();
-});
-
-
 // less to css
 gulp.task('less', function () {
-       return gulp.src('./www/less/compiler/artatol.less')
-            .pipe(less().on('error', gutil.log))
-            .pipe(gulp.dest('./www/css'));
+    return gulp.src('./ui/less/artatol.less')
+        .pipe(less().on('error', gutil.log))
+        .pipe(rename('artatol-uikit.css'))
+        .pipe(gulp.dest('./ui/css'));
 });
+
 
 // minify css
 gulp.task('minifycss', function() {
-    return gulp.src(['./www/css/*.css', './www/css/artatol.css'])
+    del([
+        './www/css/artatol-all.min-*.css'
+    ]);
+    var cStream = gulp.src([
+        './ui/css/*.css',
+        './ui/css/artatol-uikit.css'
+    ])
         .pipe(concat('all.css'))
         .pipe(minifycss({keepBreaks:false}))
         .pipe(rename('artatol-all.min.css'))
-        // .pipe(rev())
+        .pipe(rev())
         .pipe(gulp.dest('./www/css'));
+    gulp.src('./app/templates/@layout.latte')
+        .pipe(inject(cStream, {
+            read: false,
+            ignorePath: 'www',
+            transform: function(filepath) {
+                return '<link href="' + filepath + '" rel="stylesheet" type="text/css">';
+            }
+        }))
+        .pipe(gulp.dest('./app/templates/'));
 });
 
-// Watch Files For Changes, clear temp and reload
-gulp.task('watch:all', ['browsersync'], function() {
-    watchfile = ['./www/less/**/*.less', './www/css/**/*.css'];
-    gulp.watch(watchfile, function() {
-        runSequence('compile', 'bs-reload');
-    });
-    watchfoldersApp = ['.app/**/*'];
-    gulp.watch(watchfoldersApp, function() {
-        runSequence('clear:cache', 'bs-reload');
-    });
-});
 
-// Gulp just watch and reload
-gulp.task('watch:reload', ['browsersync'], function(done) {
-    gulp.watch('./app/**/*', ['bs-reload']);
-});
-
-// init sequence test
-gulp.task('compile', ['clear:temp'], function(done){
-   runSequence('clean', 'less', 'minifycss', done);
-});
-
-// Default Task - take care of everything
-gulp.task('default', ['compile', 'watch:all']);
-
-// js minify and compile
-gulp.task('compress', function() {
-    gulp.src('lib/*.js')
+gulp.task('js', function() {
+    del([
+        './www/js/artatol-all.min-*.js'
+    ]);
+    var jStream =  gulp.src([
+        // jquery
+        './vendor/components/jquery/jquery.js',
+        // uikit core in order (version 2.20)
+        './vendor/uikit/uikit/src/js/core/core.js',
+        './vendor/uikit/uikit/src/js/core/touch.js',
+        './vendor/uikit/uikit/src/js/core/utility.js',
+        './vendor/uikit/uikit/src/js/core/smooth-scroll.js',
+        './vendor/uikit/uikit/src/js/core/scrollspy.js',
+        './vendor/uikit/uikit/src/js/core/toggle.js',
+        './vendor/uikit/uikit/src/js/core/alert.js',
+        './vendor/uikit/uikit/src/js/core/button.js',
+        './vendor/uikit/uikit/src/js/core/dropdown.js',
+        './vendor/uikit/uikit/src/js/core/grid.js',
+        './vendor/uikit/uikit/src/js/core/modal.js',
+        './vendor/uikit/uikit/src/js/core/nav.js',
+        './vendor/uikit/uikit/src/js/core/offcanvas.js',
+        './vendor/uikit/uikit/src/js/core/switcher.js',
+        './vendor/uikit/uikit/src/js/core/tab.js',
+        './vendor/uikit/uikit/src/js/core/cover.js',
+        // OPTIONAL uikit js components - SELECT HERE
+        './vendor/uikit/uikit/src/js/components/grid.js',
+        './vendor/uikit/uikit/src/js/components/sticky.js',
+        './vendor/uikit/uikit/src/js/components/tooltip.js',
+        './vendor/uikit/uikit/src/js/components/notify.js',
+        // nette js
+        './ui/js/nette.ajax.js',
+        './ui/js/netteForms.js',
+        //other filese dependent on order
+        './ui/js/artatol.js'
+    ])
+        .pipe(concat('all.js'))
+        .pipe(rename('artatol-all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist'))
+        .pipe(rev())
+        .pipe(gulp.dest('./www/js'));
+    gulp.src('./app/templates/@layout.latte')
+        .pipe(inject(jStream, {
+            read: false,
+            ignorePath: 'www',
+            transform: function(filepath) {
+                return '<script src="' + filepath +'"></script>';
+            }
+        }))
+        .pipe(gulp.dest('./app/templates/'));
+
+});
+
+
+// init sequence - load uikit, process custom less, project css. Compile JS files. Compress and minify. Inject to @layout.
+
+gulp.task('compile', function(callback) {
+    runSequence('less','minifycss','js',callback);
 });

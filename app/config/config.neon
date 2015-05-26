@@ -32,7 +32,6 @@ nette:
 		secure : tls
 
 extensions:
-	webloader: WebLoader\Nette\Extension
 #	redis: Kdyby\Redis\DI\RedisExtension
 #	console: Kdyby\Console\DI\ConsoleExtension
 #	events: Kdyby\Events\DI\EventsExtension
@@ -68,35 +67,9 @@ services:
 	- App\Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
-#	wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%/webtemp)
-#	lessFilter: WebLoader\Filter\LessFilter
-#	wlCssMinFilter: Artatol\CssMinFilter
-	wlJsMinFilter: Artatol\JsMinFilter
 
 translation:
     default: en
     whitelist: [cs, en]
     debugger: true
 
-webloader:
-	css:
-		default:
-			files:
-				- '%wwwDir%/css/artatol-all.min.css'
-
-			fileFilters:
-#				- @wlCssFilter
-#				- @lessFilter
-#				- @wlCssMinFilter
-	js:
-		default:
-			files:
-				- '%appDir%/../vendor/components/jquery/jquery.min.js'
-				- '%wwwDir%/js/netteForms.js'
-				- '%appDir%/../vendor/uikit/uikit/docs/js/uikit.min.js'
-				- {files: ["*.js"], from: %appDir%/../vendor/uikit/uikit/src/js/core}
-				- '%appDir%/../vendor/uikit/uikit/src/js/components/notify.js'
-				- '%wwwDir%/js/artatol.js'
-
-			fileFilters:
-				- @wlJsMinFilter
