@@ -1,7 +1,7 @@
 {
 	"name": "artatol/sandbox",
 	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for artatol applications.",
-  	"version": "1.0.2",
+  	"version": "1.1.0",
   	"homepage": "https://artatol.com",
 	"type": "project",
 	"license": ["MIT"],
